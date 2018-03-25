@@ -13,7 +13,7 @@ gnuplot -p < hh.plt
 
 ## Izhikevich
 
-[hh.rs](https://github.com/suzusuzu/neuron-model/blob/master/src/bin/iz.rs)
+[iz.rs](https://github.com/suzusuzu/neuron-model/blob/master/src/bin/iz.rs)
 
 ```sh
 cargo run --bin iz
