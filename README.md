@@ -1,5 +1,15 @@
 # neuron model
 
+## Integrate-and-fire
+[if.rs](https://github.com/suzusuzu/neuron-model/blob/master/src/bin/if.rs)
+
+```sh
+cargo run --bin if
+gnuplot -p < if.plt
+```
+
+![if](https://raw.githubusercontent.com/suzusuzu/neuron-model/master/if.png)
+
 ## Hodgkin–Huxley
 
 [hh.rs](https://github.com/suzusuzu/neuron-model/blob/master/src/bin/hh.rs)
