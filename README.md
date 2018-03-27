@@ -31,3 +31,15 @@ gnuplot -p < iz.plt
 ```
 
 ![iz](https://raw.githubusercontent.com/suzusuzu/neuron-model/master/iz.png)
+
+## FitzHugh-Nagumo
+
+[fn.rs](https://github.com/suzusuzu/neuron-model/blob/master/src/bin/fn.rs)
+
+```sh
+cargo run --bin fn
+gnuplot -p < fn.plt
+```
+
+![fn](https://raw.githubusercontent.com/suzusuzu/neuron-model/master/fn.png)
+
