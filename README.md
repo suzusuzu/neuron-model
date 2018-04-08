@@ -52,5 +52,5 @@ cargo run --bin ps
 gnuplot -p < ps.plt
 ```
 
-![fn](https://raw.githubusercontent.com/suzusuzu/neuron-model/master/ps.png)
+![ps](https://raw.githubusercontent.com/suzusuzu/neuron-model/master/ps.png)
 
