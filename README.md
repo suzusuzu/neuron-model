@@ -43,3 +43,14 @@ gnuplot -p < fn.plt
 
 ![fn](https://raw.githubusercontent.com/suzusuzu/neuron-model/master/fn.png)
 
+## Poisson Spike
+
+[ps.rs](https://github.com/suzusuzu/neuron-model/blob/master/src/bin/ps.rs)
+
+```sh
+cargo run --bin ps
+gnuplot -p < ps.plt
+```
+
+![fn](https://raw.githubusercontent.com/suzusuzu/neuron-model/master/ps.png)
+
