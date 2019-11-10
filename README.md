@@ -4,53 +4,53 @@
 [if.rs](https://github.com/suzusuzu/neuron-model/blob/master/src/bin/if.rs)
 
 ```sh
-cargo run --bin if
+cargo run --release --bin if
 gnuplot -p < if.plt
 ```
 
-![if](https://raw.githubusercontent.com/suzusuzu/neuron-model/master/if.png)
+![if](./img/if.png)
 
 ## Hodgkin–Huxley
 
 [hh.rs](https://github.com/suzusuzu/neuron-model/blob/master/src/bin/hh.rs)
 
 ```sh
-cargo run --bin hh
+cargo run --release --bin hh
 gnuplot -p < hh.plt
 ```
 
-![hh](https://raw.githubusercontent.com/suzusuzu/neuron-model/master/hh.png)
+![hh](./img/hh.png)
 
 ## Izhikevich
 
 [iz.rs](https://github.com/suzusuzu/neuron-model/blob/master/src/bin/iz.rs)
 
 ```sh
-cargo run --bin iz
+cargo run --release --bin iz
 gnuplot -p < iz.plt
 ```
 
-![iz](https://raw.githubusercontent.com/suzusuzu/neuron-model/master/iz.png)
+![iz](./img/iz.png)
 
 ## FitzHugh-Nagumo
 
 [fn.rs](https://github.com/suzusuzu/neuron-model/blob/master/src/bin/fn.rs)
 
 ```sh
-cargo run --bin fn
+cargo run --release --bin fn
 gnuplot -p < fn.plt
 ```
 
-![fn](https://raw.githubusercontent.com/suzusuzu/neuron-model/master/fn.png)
+![fn](./img/fn.png)
 
 ## Poisson Spike
 
 [ps.rs](https://github.com/suzusuzu/neuron-model/blob/master/src/bin/ps.rs)
 
 ```sh
-cargo run --bin ps
+cargo run --release --bin ps
 gnuplot -p < ps.plt
 ```
 
-![ps](https://raw.githubusercontent.com/suzusuzu/neuron-model/master/ps.png)
+![ps](./img/ps.png)
 

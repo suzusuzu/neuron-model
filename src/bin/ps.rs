@@ -1,30 +1,24 @@
 extern crate gnuplot;
 extern crate rand;
+extern crate rand_distr;
 
-use rand::{Rng, XorShiftRng, SeedableRng};
-use rand::distributions::{Poisson, Distribution};
+use rand::prelude::*;
+use rand_distr::{Poisson, Distribution};
+use rand::distributions::Standard;
+use rand::rngs::ThreadRng;
 
-use std::mem::transmute;
 
-
-pub fn generate_spike(fr: f64, dt: f64, t: f64, rng: &mut XorShiftRng) -> Vec<usize> {
+pub fn generate_spike(fr: f64, dt: f64, t: f64, rng: &mut ThreadRng) -> Vec<usize> {
     let num = (t/dt) as usize;
-    let v: Vec<usize> = rng.gen_iter().take(num).map(|x: f64| if x < fr*dt { 1 } else { 0 } ).collect();
+    let v: Vec<usize> = rng.sample_iter(Standard).take(num).map(|x: f64| if x < fr*dt { 1 } else { 0 } ).collect();
     v
 }
 
 fn main() {
-    let seed = 1;
-    let x: u32 = 123456789;
-    let y: u32 = 362436069;
-    let z: u32 = 521288629;
-    let w: u32 = seed;
-    let seeds: [u32; 4] = [x, y, z, w];
-    const N: usize = 1000000;
+    const N: usize = 100000;
     const LAMBDA: f64 = 60.0;
 
-    let seeds = unsafe {transmute(seeds)};
-    let mut rng = XorShiftRng::from_seed(seeds);
+    let mut rng = rand::thread_rng();
     let mut fg = gnuplot::Figure::new();
 
     {
@@ -49,15 +43,15 @@ fn main() {
 
 
         // poisson distributions
-        let mut spike_cnts = Vec::with_capacity(N);
+        let mut spike_cnts: Vec<f64> = Vec::with_capacity(N);
         for _ in 0..N {
-            let poi = Poisson::new(LAMBDA);
-            let v = poi.sample(&mut rng);
+            let poi: Poisson<f64> = Poisson::new(LAMBDA).unwrap();
+            let v  = poi.sample(&mut rng);
             spike_cnts.push(v);
         }
-        let max_cnt = spike_cnts.iter().max().unwrap();
+        let max_cnt= spike_cnts.iter().fold(0.0/0.0, |m, v: &f64| v.max(m));
 
-        let mut spike_hist = vec![0;(*max_cnt+1) as usize];
+        let mut spike_hist = vec![0;(max_cnt as usize + 1) as usize];
         for spike_cnt in &spike_cnts {
             spike_hist[*spike_cnt as usize] += 1;
         }
